@@ -1,0 +1,6 @@
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\bin\Debug\Aerolina.Domain.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\bin\Debug\Aerolina.Domain.pdb
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\obj\Debug\Aerolinea.Domain.csproj.CoreCompileInputs.cache
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\obj\Debug\Aerolina.Domain.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\obj\Debug\Aerolina.Domain.pdb
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\Commond\obj\Debug\Aerolinea.Domain.csprojAssemblyReference.cache

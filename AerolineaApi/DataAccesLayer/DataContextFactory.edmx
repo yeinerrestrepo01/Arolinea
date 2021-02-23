@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AerolineaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aerolinea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PasiOrigen" Type="varchar" MaxLength="60" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+          <Property Name="Nombre" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Aeronaves">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="80" />
+          <Property Name="Serie" Type="varchar" MaxLength="80" />
+          <Property Name="Modelo" Type="varchar" MaxLength="60" />
+          <Property Name="Capacidad" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+          <Property Name="Arolinea" Type="int" />
+          <Property Name="Piloto" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Alquiler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DondeViaja" Type="varchar" MaxLength="80" />
+          <Property Name="FechaLLegada" Type="varchar" MaxLength="40" />
+          <Property Name="FechaSalida" Type="varchar" MaxLength="40" />
+          <Property Name="CantidadPasajetos" Type="int" />
+        </EntityType>
+        <EntityType Name="Pilotos">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="60" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="60" />
+          <Property Name="Direccion" Type="varchar" MaxLength="60" />
+          <Property Name="Telefono" Type="varchar" MaxLength="11" />
+          <Property Name="Email" Type="varchar" MaxLength="11" />
+          <Property Name="Aerolinea" Type="int" />
+          <Property Name="Pais" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <Association Name="FK__Aeronaves__Aroli__49C3F6B7">
+          <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+          <End Role="Aeronaves" Type="Self.Aeronaves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aerolinea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aeronaves">
+              <PropertyRef Name="Arolinea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Aeronaves__Pilot__4AB81AF0">
+          <End Role="Pilotos" Type="Self.Pilotos" Multiplicity="0..1" />
+          <End Role="Aeronaves" Type="Self.Aeronaves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pilotos">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Aeronaves">
+              <PropertyRef Name="Piloto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pilotos__Aerolin__3A81B327">
+          <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+          <End Role="Pilotos" Type="Self.Pilotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aerolinea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pilotos">
+              <PropertyRef Name="Aerolinea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AerolineaModelStoreContainer">
+          <EntitySet Name="Aerolinea" EntityType="Self.Aerolinea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aeronaves" EntityType="Self.Aeronaves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alquiler" EntityType="Self.Alquiler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pilotos" EntityType="Self.Pilotos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Aeronaves__Aroli__49C3F6B7" Association="Self.FK__Aeronaves__Aroli__49C3F6B7">
+            <End Role="Aerolinea" EntitySet="Aerolinea" />
+            <End Role="Aeronaves" EntitySet="Aeronaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Aeronaves__Pilot__4AB81AF0" Association="Self.FK__Aeronaves__Pilot__4AB81AF0">
+            <End Role="Pilotos" EntitySet="Pilotos" />
+            <End Role="Aeronaves" EntitySet="Aeronaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pilotos__Aerolin__3A81B327" Association="Self.FK__Pilotos__Aerolin__3A81B327">
+            <End Role="Aerolinea" EntitySet="Aerolinea" />
+            <End Role="Pilotos" EntitySet="Pilotos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AerolineaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aerolinea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PasiOrigen" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pilotos" Relationship="AerolineaModel.FK__Pilotos__Aerolin__3A81B327" FromRole="Aerolinea" ToRole="Pilotos" />
+          <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aeronaves" Relationship="AerolineaModel.FK__Aeronaves__Aroli__49C3F6B7" FromRole="Aerolinea" ToRole="Aeronaves" />
+        </EntityType>
+        <EntityContainer Name="AerolineaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aerolinea" EntityType="Self.Aerolinea" />
+          <EntitySet Name="Pilotos" EntityType="AerolineaModel.Pilotos" />
+          <AssociationSet Name="FK__Pilotos__Aerolin__3A81B327" Association="AerolineaModel.FK__Pilotos__Aerolin__3A81B327">
+            <End Role="Aerolinea" EntitySet="Aerolinea" />
+            <End Role="Pilotos" EntitySet="Pilotos" />
+          </AssociationSet>
+          <EntitySet Name="Aeronaves" EntityType="AerolineaModel.Aeronaves" />
+          <AssociationSet Name="FK__Aeronaves__Aroli__49C3F6B7" Association="AerolineaModel.FK__Aeronaves__Aroli__49C3F6B7">
+            <End Role="Aerolinea" EntitySet="Aerolinea" />
+            <End Role="Aeronaves" EntitySet="Aeronaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Aeronaves__Pilot__4AB81AF0" Association="AerolineaModel.FK__Aeronaves__Pilot__4AB81AF0">
+            <End Role="Pilotos" EntitySet="Pilotos" />
+            <End Role="Aeronaves" EntitySet="Aeronaves" />
+          </AssociationSet>
+          <EntitySet Name="Alquiler" EntityType="AerolineaModel.Alquiler" />
+        </EntityContainer>
+        <EntityType Name="Pilotos">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Aerolinea" Type="Int32" />
+          <Property Name="Pais" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aerolinea1" Relationship="AerolineaModel.FK__Pilotos__Aerolin__3A81B327" FromRole="Pilotos" ToRole="Aerolinea" />
+          <NavigationProperty Name="Aeronaves" Relationship="AerolineaModel.FK__Aeronaves__Pilot__4AB81AF0" FromRole="Pilotos" ToRole="Aeronaves" />
+        </EntityType>
+        <Association Name="FK__Pilotos__Aerolin__3A81B327">
+          <End Type="AerolineaModel.Aerolinea" Role="Aerolinea" Multiplicity="0..1" />
+          <End Type="AerolineaModel.Pilotos" Role="Pilotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aerolinea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pilotos">
+              <PropertyRef Name="Aerolinea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Aeronaves">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Serie" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Capacidad" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Arolinea" Type="Int32" />
+          <Property Name="Piloto" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aerolinea" Relationship="AerolineaModel.FK__Aeronaves__Aroli__49C3F6B7" FromRole="Aeronaves" ToRole="Aerolinea" />
+          <NavigationProperty Name="Pilotos" Relationship="AerolineaModel.FK__Aeronaves__Pilot__4AB81AF0" FromRole="Aeronaves" ToRole="Pilotos" />
+        </EntityType>
+        <Association Name="FK__Aeronaves__Aroli__49C3F6B7">
+          <End Type="AerolineaModel.Aerolinea" Role="Aerolinea" Multiplicity="0..1" />
+          <End Type="AerolineaModel.Aeronaves" Role="Aeronaves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aerolinea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aeronaves">
+              <PropertyRef Name="Arolinea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Aeronaves__Pilot__4AB81AF0">
+          <End Type="AerolineaModel.Pilotos" Role="Pilotos" Multiplicity="0..1" />
+          <End Type="AerolineaModel.Aeronaves" Role="Aeronaves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pilotos">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="Aeronaves">
+              <PropertyRef Name="Piloto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Alquiler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DondeViaja" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="FechaLLegada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSalida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CantidadPasajetos" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AerolineaModelStoreContainer" CdmEntityContainer="AerolineaEntities">
+          <EntitySetMapping Name="Aerolinea">
+            <EntityTypeMapping TypeName="AerolineaModel.Aerolinea">
+              <MappingFragment StoreEntitySet="Aerolinea">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PasiOrigen" ColumnName="PasiOrigen" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pilotos">
+            <EntityTypeMapping TypeName="AerolineaModel.Pilotos">
+              <MappingFragment StoreEntitySet="Pilotos">
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Aerolinea" ColumnName="Aerolinea" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aeronaves">
+            <EntityTypeMapping TypeName="AerolineaModel.Aeronaves">
+              <MappingFragment StoreEntitySet="Aeronaves">
+                <ScalarProperty Name="Piloto" ColumnName="Piloto" />
+                <ScalarProperty Name="Arolinea" ColumnName="Arolinea" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Serie" ColumnName="Serie" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alquiler">
+            <EntityTypeMapping TypeName="AerolineaModel.Alquiler">
+              <MappingFragment StoreEntitySet="Alquiler">
+                <ScalarProperty Name="CantidadPasajetos" ColumnName="CantidadPasajetos" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="FechaLLegada" ColumnName="FechaLLegada" />
+                <ScalarProperty Name="DondeViaja" ColumnName="DondeViaja" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

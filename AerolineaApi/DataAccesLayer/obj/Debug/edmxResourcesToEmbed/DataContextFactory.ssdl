@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AerolineaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aerolinea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PasiOrigen" Type="varchar" MaxLength="60" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Aeronaves">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" />
+    <Property Name="Serie" Type="varchar" MaxLength="80" />
+    <Property Name="Modelo" Type="varchar" MaxLength="60" />
+    <Property Name="Capacidad" Type="int" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="Arolinea" Type="int" />
+    <Property Name="Piloto" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="Alquiler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DondeViaja" Type="varchar" MaxLength="80" />
+    <Property Name="FechaLLegada" Type="varchar" MaxLength="40" />
+    <Property Name="FechaSalida" Type="varchar" MaxLength="40" />
+    <Property Name="CantidadPasajetos" Type="int" />
+  </EntityType>
+  <EntityType Name="Pilotos">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nombres" Type="varchar" MaxLength="60" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="60" />
+    <Property Name="Direccion" Type="varchar" MaxLength="60" />
+    <Property Name="Telefono" Type="varchar" MaxLength="11" />
+    <Property Name="Email" Type="varchar" MaxLength="11" />
+    <Property Name="Aerolinea" Type="int" />
+    <Property Name="Pais" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <Association Name="FK__Aeronaves__Aroli__49C3F6B7">
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+    <End Role="Aeronaves" Type="Self.Aeronaves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aeronaves">
+        <PropertyRef Name="Arolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aeronaves__Pilot__4AB81AF0">
+    <End Role="Pilotos" Type="Self.Pilotos" Multiplicity="0..1" />
+    <End Role="Aeronaves" Type="Self.Aeronaves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pilotos">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Aeronaves">
+        <PropertyRef Name="Piloto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pilotos__Aerolin__3A81B327">
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+    <End Role="Pilotos" Type="Self.Pilotos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pilotos">
+        <PropertyRef Name="Aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AerolineaModelStoreContainer">
+    <EntitySet Name="Aerolinea" EntityType="Self.Aerolinea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aeronaves" EntityType="Self.Aeronaves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alquiler" EntityType="Self.Alquiler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pilotos" EntityType="Self.Pilotos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Aeronaves__Aroli__49C3F6B7" Association="Self.FK__Aeronaves__Aroli__49C3F6B7">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Aeronaves" EntitySet="Aeronaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aeronaves__Pilot__4AB81AF0" Association="Self.FK__Aeronaves__Pilot__4AB81AF0">
+      <End Role="Pilotos" EntitySet="Pilotos" />
+      <End Role="Aeronaves" EntitySet="Aeronaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pilotos__Aerolin__3A81B327" Association="Self.FK__Pilotos__Aerolin__3A81B327">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Pilotos" EntitySet="Pilotos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

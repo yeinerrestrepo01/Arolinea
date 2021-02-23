@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AerolineaModelStoreContainer" CdmEntityContainer="AerolineaEntities">
+    <EntitySetMapping Name="Aerolinea">
+      <EntityTypeMapping TypeName="AerolineaModel.Aerolinea">
+        <MappingFragment StoreEntitySet="Aerolinea">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PasiOrigen" ColumnName="PasiOrigen" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pilotos">
+      <EntityTypeMapping TypeName="AerolineaModel.Pilotos">
+        <MappingFragment StoreEntitySet="Pilotos">
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Aerolinea" ColumnName="Aerolinea" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aeronaves">
+      <EntityTypeMapping TypeName="AerolineaModel.Aeronaves">
+        <MappingFragment StoreEntitySet="Aeronaves">
+          <ScalarProperty Name="Piloto" ColumnName="Piloto" />
+          <ScalarProperty Name="Arolinea" ColumnName="Arolinea" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alquiler">
+      <EntityTypeMapping TypeName="AerolineaModel.Alquiler">
+        <MappingFragment StoreEntitySet="Alquiler">
+          <ScalarProperty Name="CantidadPasajetos" ColumnName="CantidadPasajetos" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="FechaLLegada" ColumnName="FechaLLegada" />
+          <ScalarProperty Name="DondeViaja" ColumnName="DondeViaja" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

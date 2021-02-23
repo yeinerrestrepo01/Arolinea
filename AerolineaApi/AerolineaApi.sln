@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AerolineaApi", "AerolineaApi\AerolineaApi.csproj", "{ED7070CC-C4AE-483F-B09F-2CA199226D10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerolinea.Repository", "DataAccesLayer\Aerolinea.Repository.csproj", "{D696C3A2-F194-414D-8FEF-B4507186BE1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerolinea.Domain", "Commond\Aerolinea.Domain.csproj", "{D68472C7-2562-4DB3-AF9B-872595D2BB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerolinea.Services", "BusinessLayer\Aerolinea.Services.csproj", "{6E6A1586-F489-457C-BF34-54826E13BE24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED7070CC-C4AE-483F-B09F-2CA199226D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7070CC-C4AE-483F-B09F-2CA199226D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7070CC-C4AE-483F-B09F-2CA199226D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7070CC-C4AE-483F-B09F-2CA199226D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D696C3A2-F194-414D-8FEF-B4507186BE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D696C3A2-F194-414D-8FEF-B4507186BE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D696C3A2-F194-414D-8FEF-B4507186BE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D696C3A2-F194-414D-8FEF-B4507186BE1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D68472C7-2562-4DB3-AF9B-872595D2BB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D68472C7-2562-4DB3-AF9B-872595D2BB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D68472C7-2562-4DB3-AF9B-872595D2BB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D68472C7-2562-4DB3-AF9B-872595D2BB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6A1586-F489-457C-BF34-54826E13BE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6A1586-F489-457C-BF34-54826E13BE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6A1586-F489-457C-BF34-54826E13BE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6A1586-F489-457C-BF34-54826E13BE24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {335AD5E3-FB89-47F7-B982-E3407D557652}
+	EndGlobalSection
+EndGlobal

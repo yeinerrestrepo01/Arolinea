@@ -1,0 +1,16 @@
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\Aerolinea.Services.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\Aerolinea.Services.pdb
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\Aerolina.Domain.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\DataAccesLayer.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\AutoMapper.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\Aerolina.Domain.pdb
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\DataAccesLayer.pdb
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\DataAccesLayer.dll.config
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\bin\Debug\AutoMapper.xml
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\obj\Debug\Aerolinea.Services.csprojAssemblyReference.cache
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\obj\Debug\Aerolinea.Services.csproj.CoreCompileInputs.cache
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\obj\Debug\Aerolinea.Services.csproj.CopyComplete
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\obj\Debug\Aerolinea.Services.dll
+C:\Users\PROFESIONAL\source\repos\AerolineaApi\BusinessLayer\obj\Debug\Aerolinea.Services.pdb
